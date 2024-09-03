@@ -1,4 +1,5 @@
-﻿namespace Demo
+﻿using static Demo.ListGenerator;
+namespace Demo
 {
     internal class Program
     {
@@ -40,10 +41,29 @@
             var oddNumbers = from N in Numbers01
                              where N %2==1
                              select N;
-            foreach (var number in oddNumbers) { Console.WriteLine(number); }; 
+            //foreach (var number in oddNumbers) { Console.WriteLine(number); };
             //must begin with from and end with select or groupBy
             #endregion
 
+            #endregion
+            #region Exectuations ways
+            #region deffered execuation [Latest version of data]
+            //List<int> Numbers02 = new List<int>() { 1, 2, 5, 6, 7, 9, 12, 14, 15, 19 };
+            //var evenNumbers = Numbers02.Where(x => x % 2 == 0);
+            //Numbers02.AddRange(new List<int>() { 100, 101, 102, 103, 104 });
+            ////where is Executed with deffered execuation[مؤجل]
+            //foreach (var number in evenNumbers) { Console.WriteLine(number); };
+            #endregion
+            #region immediate execuation[Elements Operators , Casting Operators , Aggregate Operators]
+            List<int> Numbers02 = new List<int>() { 1, 2, 5, 6, 7, 9, 12, 14, 15, 19 };
+            var evenNumbers = Numbers02.Where(x => x % 2 == 0).ToList();
+            Numbers02.AddRange(new List<int>() { 100, 101, 102, 103, 104 }); 
+           // foreach (var number in evenNumbers) { Console.WriteLine(number); };
+            #endregion
+            #endregion
+            #region Set Up Data         
+            Console.WriteLine(ProductsList[0]);
+            Console.WriteLine(CustomersList[0]);
             #endregion
         }
     }
