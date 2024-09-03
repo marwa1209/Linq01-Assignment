@@ -98,7 +98,68 @@ namespace Demo
             {
                 Console.WriteLine(item);
             }
-            #endregion 
+            #endregion
+            #endregion
+            #region Transformation [Projection] Operators [Select , Select Many]
+            #region Select Product Name
+            //Select Product Name
+            //fluent syntax
+            //var Result0 = ProductsList.Select(x=>x.ProductName);
+            //Query Syntax
+            //var Result0 = from p in ProductsList
+            //              select p.ProductName;
+            //foreach (var item in Result0)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Select Customer Name
+            ////fluent syntax
+            //var Result0 = CustomersList.Select(x=>x.CustomerName);
+            ////Query Syntax
+            // Result0 = from p in CustomersList
+            //           select p.CustomerName;
+            //foreach (var item in Result0)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Select Customer Orders
+            ////fluent syntax
+            //var Result0 = CustomersList.SelectMany(x => x.Orders);
+            ////Query Syntax
+            //Result0 = from p in CustomersList
+            //          from o in p.Orders
+            //          select o;
+            //foreach (var item in Result0)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Select ProductId And Product Name
+            ////fluent syntax
+            //var Result0 = ProductsList.Select(x =>new  {x.ProductID , x.ProductName } );
+            ////Query Syntax
+            //Result0 = from p in ProductsList
+            //          select new { p.ProductID  ,  p.ProductName };
+            //foreach (var item in Result0)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Select Product In Stock and Apply 10% discount on its price
+            ////fluent syntax
+            //var Result0 = ProductsList.Where(x => x.UnitsInStock > 0).Select(x => new { x.ProductID, x.ProductName ,oldPrice=x.UnitPrice , PriceAfterDiscount=x.UnitPrice-(x.UnitPrice*0.1M)});
+            ////Query Syntax
+            //Result0 = from x in ProductsList
+            //          where x.UnitsInStock>0
+            //          select new { x.ProductID, x.ProductName, oldPrice = x.UnitPrice, PriceAfterDiscount = x.UnitPrice - (x.UnitPrice * 0.1M) };
+            //foreach (var item in Result0)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
             #endregion
 
         }
