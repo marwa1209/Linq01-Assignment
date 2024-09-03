@@ -113,7 +113,6 @@ namespace Demo
             //    Console.WriteLine(item);
             //}
             #endregion
-
             #region Select Customer Name
             ////fluent syntax
             //var Result0 = CustomersList.Select(x=>x.CustomerName);
@@ -161,7 +160,42 @@ namespace Demo
             //}
             #endregion
             #endregion
+            #region Ordering Operators [Ascending , Descending ,Reverse ,ThenBy ,ThenByDescending]
+            #region Get Products Orderd By Price Asc
+            // //fluent syntax
+            // var Result0 = ProductsList.OrderBy(x => x.UnitPrice);
+            //// Query Syntax
+            //  Result0 = from p in ProductsList
+            //            orderby p.UnitPrice
+            //            select p;
+            // foreach (var item in Result0)
+            // {
+            //     Console.WriteLine(item);
+            // }
+            #endregion
+            #region Get Products Orderd By Price Desc
+            ////fluent syntax
+            //var Result0 = ProductsList.OrderByDescending(x => x.UnitPrice);
+            //// Query Syntax
+            //Result0 = from p in ProductsList
+            //          orderby p.UnitPrice descending
+            //          select p;
+            //foreach (var item in Result0)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Get Products Orderd By Price Asc And Numbers Of Items In Stock
+            ////fluent syntax
+            //var Result0 = ProductsList.OrderBy(x => x.UnitPrice).ThenByDescending(x => x.UnitsInStock).Reverse();
+            ////  var Result02 = ProductsList.Where(x => x.UnitsInStock==0).Reverse();
 
+            //foreach (var item in Result0)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #endregion
         }
     }
 }
