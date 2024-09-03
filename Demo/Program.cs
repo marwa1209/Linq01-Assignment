@@ -198,8 +198,8 @@ namespace Demo
             #endregion
             #region Elements Operators -Immediate Execuation [Valid Only With Fluent Syntax][First,Last,FirstOrDefault,LastOrDefault,ElementAt,ElementAtOrDefault,Single,SingleOrDefault]
             //fluent syntax
-            var Result0 = ProductsList.First(); //get first element
-            Result0 = ProductsList.Last(); //get Last element
+            //   var Result0 = ProductsList.First(); //get first element
+            //Result0 = ProductsList.Last(); //get Last element
 
             //  Console.WriteLine(Result0?.ProductName??"Not Found");
             //     Result0 = ProductsList.FirstOrDefault(); //get first element
@@ -209,12 +209,12 @@ namespace Demo
             ////     Result0 = ProductsList.ElementAt( 99); //excepton
             //     Result0 = ProductsList.ElementAtOrDefault( 99); 
 
-              //Result0 = ProductsList.Single( ); //exception
-             // Result0 = ProductsList.Single(p=>p.ProductID==1);  //exception
-             Result0 = ProductsList.SingleOrDefault();  
+            //Result0 = ProductsList.Single( ); //exception
+            // Result0 = ProductsList.Single(p=>p.ProductID==1);  //exception
+            // Result0 = ProductsList.SingleOrDefault();  
 
-            Console.WriteLine(Result0?.ProductName ?? "Not Found");
-           // Query Syntax
+            //  Console.WriteLine(Result0?.ProductName ?? "Not Found");
+            // Query Syntax
             //Result0 = from p in ProductsList
             //          orderby p.UnitPrice
             //          select p;
