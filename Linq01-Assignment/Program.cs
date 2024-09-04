@@ -1,7 +1,9 @@
 ﻿using Linq01_Assignment.Data;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using static Linq01_Assignment.ListGenerator;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Linq01_Assignment
 {
@@ -19,7 +21,7 @@ namespace Linq01_Assignment
             //foreach (var Product in InStockProducts) { Console.WriteLine(Product); }
             #endregion
             #region 3. Returns digits whose name is shorter than their value.
-            String[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            string[] Arr = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
             var digits = Arr.Where((d, i) => d.Length > i);
             //foreach (var digit in digits) { Console.WriteLine(digit); }
             #endregion
@@ -53,19 +55,30 @@ namespace Linq01_Assignment
             // Console.WriteLine("The number of odd numbers in the array is: " + oddNumbersCount); 
             #endregion
             #region 2. Return a list of customers and how many orders each has.
-            var Customers = CustomersList.SelectMany((c) => c.Orders, (c, o) => new { c.CustomerID, c.CustomerName, o });
+            var Customers = CustomersList.Select(c => new { c.CustomerName, c.CustomerID, OrdersCount = c.Orders.Count() });
             //foreach (var customer in Customers)
             //{
             //    Console.WriteLine(customer);
             //}
             #endregion
-            #region Get the total of the numbers in an array.
-
-            int[] Arr00 = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-
+            #region 3. Return a list of categories and how many products each has
+            var Categories = ProductsList.Select(p => new { p.Category, ProductsCount = ProductsList.Count(c => c.Category == p.Category) });
+            #endregion
+            #region 4 .Get the total of the numbers in an array.
+            int[] Arr00 = { 5, 4, 1, 3, 9, 8, 6,  7, 2, 0 };
             int total = Arr00.Sum();
-
             // Console.WriteLine("The total of the numbers in the array is: " + total);
+            #endregion
+           // string[] words = File.ReadAllText("dictionary_english.txt");
+            #region 5.Get the total number of characters of all words in dictionary_english.txt(Read dictionary_english.txt into Array of String First).
+            // Console.WriteLine(words);
+            //when i loop it loop in char char in the words it is not an array
+          //  var resul0t =words.Sum(x => x);
+            //Console.WriteLine(resul0t);
+            #endregion
+            #region 6. Get the length of the shortest word in dictionary_english.txt (Read dictionary_english.txt into Array of String First).
+           // var smallestElement = words.OrderBy(x => x.Length);
+           // Console.WriteLine(smallestElement);
             #endregion
             #endregion
             #region LINQ - Ordering Operators
@@ -105,7 +118,7 @@ namespace Linq01_Assignment
             var OrderProductsbyCategory = ProductsList.OrderBy(p => p.Category).ThenByDescending(p => p.UnitPrice);
             #endregion
             #region 7. Sort first by-word length and then by a case-insensitive descending sort of the words in an array.
-            String[] ArrFruits001 = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
+            string[] ArrFruits001 = { "aPPLE", "AbAcUs", "bRaNcH", "BlUeBeRrY", "ClOvEr", "cHeRry" };
             var OrderdArrFruits001 = ArrFruits001.OrderBy(p => p.Length).ThenByDescending(p => p);
             #endregion
             #region 8. Create a list of all digits in the array whose second letter is 'i' that is reversed from the order in the original array.
