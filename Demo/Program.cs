@@ -5,6 +5,7 @@ namespace Demo
     {
         static void Main(string[] args)
         {
+            #region Session01
             #region What Is Linq
             ///Linq => Language Integrated Query
             ///Linq +40 Extention Methods
@@ -219,6 +220,37 @@ namespace Demo
             //          orderby p.UnitPrice
             //          select p;
 
+            #endregion
+            #endregion
+            #region Session02
+            #region Casting Operators [immediate Execuation]
+            #region tolist()
+            // List<Product> Products = ProductsList.Where(p => p.UnitsInStock == 0).ToList(); 
+            #endregion
+            #region toArray()
+            //  Product[] Products = ProductsList.Where(p => p.UnitsInStock == 0).ToArray();//casting with to array 
+            #endregion
+            #region ToDictionary()
+            Dictionary<long, Product> Result002 = ProductsList.Where(p => p.UnitsInStock == 0).ToDictionary(p => p.ProductID);
+            //foreach (var item in Result002)
+            //{
+            //    Console.WriteLine(item.Value);
+            //} 
+            #endregion
+            #endregion
+            #region Generation Operators-Deffered Execuation
+            //valid only with fluent syntax
+            //the only way to call them as static method from class enumrable
+            var result00 = Enumerable.Range(0,100);
+             result00 = Enumerable.Repeat(2, 100);
+
+            foreach (var x in result00) { Console.WriteLine(x); }
+            #endregion
+            #region SET OPERATORS
+            var result0 = Enumerable.Range(0, 100);
+            var result01 = Enumerable.Range(50, 100);
+            var res = result0.Union(result01).ToList();
+            #endregion
             #endregion
         }
     }
